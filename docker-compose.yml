@@ -4,6 +4,10 @@ volumes:
   romm-resources:
 
 
+networks:
+  romm-network:
+    driver: bridge
+
 services:
   romm:
     container_name: romm
@@ -30,6 +34,9 @@ services:
     ports:
       - 8080
 
+    networks:
+      - romm-network
+
     depends_on:
       romm-db:
         restart: true
@@ -48,6 +55,9 @@ services:
 
     volumes:
       - romm-database:/var/lib/mysql
+
+    networks:
+      - romm-network
 
     healthcheck:
       retries: 5
