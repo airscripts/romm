@@ -9,8 +9,7 @@ networks:
     driver: bridge
 
 services:
-  romm:
-    container_name: romm
+  romm-core:
     restart: unless-stopped
     image: rommapp/romm:latest
 
@@ -45,7 +44,6 @@ services:
   romm-database:
     image: mariadb:latest
     restart: unless-stopped
-    container_name: romm-database
 
     environment:
       - MARIADB_USER=$MARIADB_USER
