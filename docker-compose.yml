@@ -5,9 +5,9 @@ volumes:
 
 
 services:
-  romm-core:
+  romm:
+    container_name: romm
     restart: unless-stopped
-    container_name: romm-core
     image: rommapp/romm:latest
 
     environment:
@@ -31,14 +31,14 @@ services:
       - 8080
 
     depends_on:
-      romm-database:
+      romm-db:
         restart: true
         condition: service_healthy
 
-  romm-database:
+  romm-db:
     image: mariadb:latest
     restart: unless-stopped
-    container_name: romm-database
+    container_name: romm-db
 
     environment:
       - MARIADB_USER=$MARIADB_USER
