@@ -38,14 +38,14 @@ services:
       - romm-network
 
     depends_on:
-      romm-db:
+      romm-database:
         restart: true
         condition: service_healthy
 
-  romm-db:
+  romm-database:
     image: mariadb:latest
     restart: unless-stopped
-    container_name: romm-db
+    container_name: romm-database
 
     environment:
       - MARIADB_USER=$MARIADB_USER
