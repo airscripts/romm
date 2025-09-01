@@ -31,7 +31,7 @@ services:
       - 8080
 
     depends_on:
-      romm-db:
+      romm-database:
         restart: true
         condition: service_healthy
 
